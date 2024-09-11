@@ -22,5 +22,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls')) # Basicamente pelo o que eu entendi, isso direciona o seu usuario para sua api front-end
+    path('api/', include('api.urls')), # Basicamente pelo o que eu entendi, isso direciona o seu usuario para sua api front-end
+    path('', include('frontend.urls'))
 ]
