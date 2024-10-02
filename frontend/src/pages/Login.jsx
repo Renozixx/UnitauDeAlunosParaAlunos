@@ -1,7 +1,14 @@
 import React from 'react'
+import MyHeader from '../components/MyHeader'
+import Form from '../components/Form'
 
-export default function Login() {
+const Login = () => {
   return (
-    <div>Login</div>
+    <>
+      <MyHeader />
+      <Form route="/api/token/" method="login"></Form>
+    </>
   )
 }
+
+export default Login

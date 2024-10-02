@@ -1,7 +1,15 @@
 import React from 'react'
+import MyHeader from '../components/MyHeader'
+import Form from '../components/Form'
 
-export default function Register() {
-  return (
-    <div>Register</div>
+
+const Register = () => {
+  return (      
+    <>
+      <MyHeader />
+      <Form route="/api/user/register/" method="register"></Form>
+    </>
   )
 }
+
+export default Register
