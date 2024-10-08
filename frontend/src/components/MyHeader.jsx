@@ -6,7 +6,7 @@ const MyHeader = () => {
     <>
         <header className=' w-full bg-violet-600'>
             <nav>
-                <ul>
+                <ul className=' '>
                     <li><Link></Link></li>
                     <li><Link></Link></li>
                     <li><Link></Link></li>

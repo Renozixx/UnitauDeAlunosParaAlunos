@@ -21,9 +21,16 @@ const Home = () => {
     .catch((error) => alert(error))
   }
 
+  
   return (
     <>
-    
+      <h1>Home Page</h1>
+      {Post.map(Post => {
+        <div key={Post.id}>
+          <h3>{Post.title}</h3>
+          <p>{Post.title}</p>
+        </div>
+      })}
     </>
   )
 }
