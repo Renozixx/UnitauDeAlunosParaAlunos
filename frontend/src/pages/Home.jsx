@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import api from '../api'
 import ProtectedRoute from '../components/ProtectedRoute'
 import React, { useState, useEffect } from 'react'
@@ -12,10 +13,14 @@ const Home = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
 
+  useEffect(() => {
+    getPosts();
+  }, [])
+
   // Essa função pega os posts do usuario no geral
   const getPosts = () => {
     api
-    .get("/api/post/")
+    .get("/api/Posts/")
     .then((res) => res.data)
     .then((data) => { setPosts(data); console.log(data)} )
     .catch((error) => alert(error))
@@ -25,12 +30,15 @@ const Home = () => {
   return (
     <>
       <h1>Home Page</h1>
-      {Post.map(Post => {
-        <div key={Post.id}>
-          <h3>{Post.title}</h3>
-          <p>{Post.title}</p>
-        </div>
-      })}
+      <div>
+        {Post.map(Post => {
+          <div key={Post.id}>
+            <h3>{Post.titulo}</h3>
+            <p>{Post.conteudo}</p>
+          </div>
+        })}
+      </div>
+      <Link to={"UserPage"}>Teste</Link>
     </>
   )
 }

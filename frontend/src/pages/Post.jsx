@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import api from '../api'
 
-const Post = () => {
+const Post = ({ id }) => {
+    const [post, setPost] = useState()
+
     const getPost = () => {
-
+        api
+        .get(`/api/Post/${id}`)
+        .then(res => console.log(res))
     }
 
   

@@ -36,7 +36,14 @@ class PostDelete(generics.DestroyAPIView):
         return Post.objects.filter(autor=user)
     
 
-class HomePage(generics.GenericAPIView):
+class HomePage(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [AllowAny]
+
+
+class PostPage(generics.RetrieveAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [AllowAny]
+    queryset = Post.objects.all()
+    
