@@ -1,5 +1,4 @@
 /env
 /node_modules
-/backend/backend/__pychace__
-/backend/api/__pychace__
 /backend/backend/settings.py
+/__pycache__
