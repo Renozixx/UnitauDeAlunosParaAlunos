@@ -1,3 +1,4 @@
 /env
 /node_modules
 /backend/backend/settings.py
+/__pycache__
