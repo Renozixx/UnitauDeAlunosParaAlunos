@@ -1,1 +1,42 @@
 /* Deixar esse arquivo CSS para vocês estilizarem como quiserem algum elemento mais especifico fora do Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+    Presta atenção, a gnt vai usar o TailWindCSS, ele é opcional e muitas vezes ele não é muito flexivel, então vou
+explicar como ele funciona, o TailWindCSS é uma biblioteca escrita em CSS que tem classes Pre-Prontas que fazem o 
+serviço para você, porem como ela são pré feitas elas nao se adaptam ao seu proejto, até podem, mas é muito mais simples
+escrever suas propias classes CSS e trabalhar com elas, então vai dando uma olhada no front-end para ter uma noção de
+como usar, e vai lendo a documentação deles tambem para poder ficar em paz  
+*/
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+main {
+    height: fit-content;
+}
+
+.header-container {
+    background-color: #374357;
+}
+
+.header-links a {
+    text-decoration: none;
+}
+
+.darkmode-backgroundcolor {
+    background-color: #0F1C2E;
+}
+
+.darkmode-itemscolor {
+    background-color: #1F2B3E;
+}
+
+.button {
+    background-color: #3D5A80;
+}

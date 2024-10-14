@@ -5,8 +5,12 @@ import Form from '../components/Form'
 const Login = () => {
   return (
     <>
-      <MyHeader/>
-      <Form route="/api/token/" method="login"></Form>
+      <body className='h-screen darkmode-backgroundcolor'>
+        <MyHeader/>
+        <main>
+          <Form route="/api/token/" method="login"></Form>
+        </main>
+      </body>
     </>
   )
 }
