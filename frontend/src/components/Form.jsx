@@ -36,14 +36,14 @@ const Form = ({route, method}) => {
         <form onSubmit={handleSubmit} className="form-container">
             <h1>{name}</h1>
             <input 
-                className='form-input'
+                className='form-input text-black'
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder='Username'
             />
             <input
-                className='form-input' 
+                className='form-input text-black' 
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

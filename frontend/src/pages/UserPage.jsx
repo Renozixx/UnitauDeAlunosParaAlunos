@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import api from '../api'
 import MyHeader from '../components/MyHeader'
 import ProtectedRoute from '../components/ProtectedRoute'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 function UserPage() {
     const Username = localStorage.getItem("Username")
     const [Posts, setPosts] = useState([])
     const [conteudo, setConteudo] = useState("")
     const [titulo, setTitulo] = useState("")
-
+    
     useEffect(() => {
         getPosts()
     }, [])
@@ -20,38 +20,32 @@ function UserPage() {
             .then((res) => res.data)
             .then((data) => {
                 setPosts(data);
-                console.log(data);
             })
             .catch((err) => alert(err));
-    };
-
+    }
     const deletePost = async (e) => {
-        api.delete(`/api/Post/delete/${id}/`).then((res) => {
+        api.delete(`/api/Post/delete/${id}/`)
+        .then((res) => {
             if (res.status === 204) alert("Post Deleted!")
             else alert("Failed to delete Post!")
             getPosts()
         })
-            .catch((error) => alert(error))
+        .catch((error) => alert(error))
     }
 
-    const addPost = (e) => {
-        e.preventDefault()
-        api
-            .post("/api/User/Post/", { titulo, conteudo })
-            .then((res) => {
-                if (res.status === 201) alert("Post Criado")
-                else alert("Failed to make note.")
-                getPosts();
-            })
-            .catch((err) => alert(err))
+    const Logout = () => {
+      localStorage.clear()
+      Navigate("/login")
     }
 
     return (
       <>
         <ProtectedRoute>
-          <body className="darkmode-backgroundcolor h-screen flex flex-col">
-            <MyHeader />
-            <main className="w-full lg:gap-4 lg:inline-flex h-full">
+          <body className="darkmode-backgroundcolor lato-regular h-screen flex flex-col">
+            <div>
+                <MyHeader />
+            </div>
+            <main className="w-full lg:gap-4 lg:inline-flex h-full darkmode-backgroundcolor">
               <aside className="darkmode-itemscolor lg:w-44 lg:h-full break-words">
                 <div className="ml-2 mr-2">
                   <h3 className="mb-5 mt-5">Foto do usuario</h3>
@@ -87,37 +81,15 @@ function UserPage() {
                     </div>
                   ))}
                 </div>
-                <div>
-                  <h2>Create a Post</h2>
-                  <form onSubmit={addPost}>
-                    <label htmlFor="titulo">titulo:</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="titulo"
-                      name="titulo"
-                      required
-                      onChange={(e) => setTitulo(e.target.value)}
-                      value={titulo}
-                    />
-                    <label htmlFor="Conteudo">Conteudo:</label>
-                    <br />
-                    <textarea
-                      id="Conteudo"
-                      name="Conteudo"
-                      required
-                      value={conteudo}
-                      onChange={(e) => setConteudo(e.target.value)}
-                    ></textarea>
-                    <br />
-                    <input type="submit" value="Submit"></input>
-                  </form>
-                </div>
+                <Link to={"/PostCreate"}>+ Criar Novo Post</Link>
+                  <button onClick={Logout}>Logout</button>
               </div>
+              
             </main>
           </body>
         </ProtectedRoute>
       </>
     );
 }
+
 export default UserPage

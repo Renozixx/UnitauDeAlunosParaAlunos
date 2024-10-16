@@ -21,20 +21,22 @@ const Home = () => {
   const getPosts = () => {
     api
     .get("/api/Posts/")
-    .then((res) => res.data)
-    .then((data) => { setPosts(data); console.log(data)} )
+    .then((res) => res.data )
+    .then((data, status) => { 
+      setPosts(data)
+      console.log(data, status)
+    })
     .catch((error) => alert(error))
   }
 
-  
+
   return (
     <>
-      <body>
+      <body className='darkmode-backgroundcolor h-screen'>
         <MyHeader />
         <main>
           <h1>Home Page</h1>
           <div>
-            {Post.map(Post => console.log(Post))}
             {Post.map(Post => (
               <div key={Post.id} className=''>
                 <h3>{Post.titulo}</h3>
