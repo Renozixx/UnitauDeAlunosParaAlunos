@@ -31,12 +31,12 @@ const Modelo = ({ props, nome }) => {
   // Classe do TailWind que faz com que seu componente preencha a tela inteira
   // A pagina que está melhor desenvolvida é a UserPage.jsx vale ir dar uma olhada lá
   return (
-    <body className='darkmode-backgroundcolor h-screen'>
+    <main className='darkmode-backgroundcolor h-screen'>
       <MyHeader />
-      <main>
+      <article>
         <h1>As informações que você quer e etc</h1>
-      </main>
-    </body>
+      </article>
+    </main>
   )
 }
 

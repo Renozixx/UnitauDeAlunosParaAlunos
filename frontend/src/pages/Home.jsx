@@ -13,10 +13,6 @@ const Home = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
 
-  useEffect(() => {
-    getPosts();
-  }, [])
-
   // Essa função pega os posts do usuario no geral
   const getPosts = () => {
     api
@@ -29,23 +25,25 @@ const Home = () => {
     .catch((error) => alert(error))
   }
 
+  useEffect(() => {
+    getPosts();
+  }, [])
 
+  pesquisarPost(() => {
+    
+  })
   return (
     <>
-      <body className='darkmode-backgroundcolor h-screen'>
+      <main className='darkmode-backgroundcolor h-screen'>
         <MyHeader />
-        <main>
-          <h1>Home Page</h1>
+        <article>
           <div>
-            {Post.map(Post => (
-              <div key={Post.id} className=''>
-                <h3>{Post.titulo}</h3>
-                <div>{Post.conteudo}</div>
-              </div>
-            ))}
+            <form action="">
+
+            </form>
           </div>
-        </main>
-      </body>
+        </article>
+      </main>
     </>
   )
 }
