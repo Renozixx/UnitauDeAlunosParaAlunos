@@ -103,3 +103,21 @@ main {
     font-style: italic;
   }
   
+.ql-toolbar .ql-picker-label::before,
+.ql-toolbar .ql-stroke {
+  stroke: white; /* Cor para os ícones */
+}
+
+.ql-toolbar .ql-fill {
+  fill: white; /* Outra forma de cor para os ícones que usam fill */
+}
+
+.ql-toolbar .ql-picker-label {
+  color: white; /* Cor do texto dos rótulos */
+}
+
+/* Cor das opções ao abrir o menu dropdown */
+.ql-toolbar .ql-picker-options {
+  background-color: #fff5f5; /* Cor de fundo das opções */
+  color: black; /* Cor do texto das opções */
+}

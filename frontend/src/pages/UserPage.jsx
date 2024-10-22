@@ -6,12 +6,13 @@ import { Link, Navigate } from 'react-router-dom'
 
 function UserPage() {
     const Username = localStorage.getItem("Username")
+    const [todosPosts, setTodosPosts] = useState([])
     const [Posts, setPosts] = useState([])
-    const [conteudo, setConteudo] = useState("")
-    const [titulo, setTitulo] = useState("")
+    const [counter, setCounter] = useState(0)
     
     useEffect(() => {
         getPosts()
+        dividirPost()
     }, [])
 
     const getPosts = () => {
@@ -19,7 +20,7 @@ function UserPage() {
             .get("/api/User/Post/")
             .then((res) => res.data)
             .then((data) => {
-                setPosts(data);
+                setTodosPosts(data);
             })
             .catch((err) => alert(err));
     }
@@ -36,6 +37,27 @@ function UserPage() {
     const Logout = () => {
       localStorage.clear()
       Navigate("/login")
+    }
+
+    const dividirPost = () => {
+      setPosts([])
+      console.log(todosPosts.slice(counter, counter+3))
+      console.log(todosPosts)
+      setPosts(todosPosts.slice(counter, counter+3))
+    }
+
+    const ProximoPost = () => {
+      setCounter(counter + 3)
+      if(counter + 3 > todosPosts.length){
+        btn = document.getElementById("btn-avancar")
+        btn.enable = False
+      }
+      dividirPost()
+    }
+
+    const VoltarPosts = () => {
+      setCounter(counter - 3)
+      dividirPost()
     }
 
     return (
@@ -58,6 +80,7 @@ function UserPage() {
                       Universidade de Taubaté (UNITAU), atualmente trabalhando
                       em projetos pessoais apenas.
                     </p>
+                    <button onClick={Logout} className='bg-blue-950 rounded-md p-2'>Logout</button>
                   </div>
                 </div>
               </aside>
@@ -80,9 +103,13 @@ function UserPage() {
                       </button>
                     </div>
                   ))}
+                  <div className='flex'>
+                    <button id='btn-voltar' className='mx-3' onClick={VoltarPosts}>-</button>
+                    <button id='vtn-avancar' className='ml-5' onClick={ProximoPost}>+</button>
+                  </div>
                 </div>
-                <Link to={"/PostCreate"}>+ Criar Novo Post</Link>
-                  <button onClick={Logout}>Logout</button>
+                <Link to={"/PostCreate"} className='bg-blue-950 rounded-md p-2 h-min mt-5'>+ Criar Novo Post</Link>
+                <p>{counter}</p>
               </div>
               
             </main>

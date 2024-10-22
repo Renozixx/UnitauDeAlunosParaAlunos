@@ -48,9 +48,9 @@ const PostCreate = () => {
                 />
               </div>
               <div className="mb-4">
-                <ReactQuill value={conteudo} onChange={handleChange} className="text-white"></ReactQuill>
+                <ReactQuill theme="snow" value={conteudo} onChange={handleChange} className="text-white"></ReactQuill>
               </div>
-              <p>{titulo}</p>
+              <button onSubmit={addPost}>Criar Postagem</button>
             </form>
           </main>
         </body>

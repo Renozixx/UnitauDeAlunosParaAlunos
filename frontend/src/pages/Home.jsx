@@ -40,7 +40,7 @@ const Home = () => {
             {Post.map(Post => (
               <div key={Post.id} className=''>
                 <h3>{Post.titulo}</h3>
-                <p>{Post.conteudo}</p>
+                <div>{Post.conteudo}</div>
               </div>
             ))}
           </div>
