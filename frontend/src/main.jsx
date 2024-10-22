@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserPage from "./pages/UserPage";
+import Post from "./pages/Post";
+import PostCreate from "./pages/PostCreate";
 
 // Cara, eu não ia colocar nenhum comentario dentro desse arquivo, porem acho necessario, já que eu apanhei muito para
 // Achar a maneira correta de fazer isso, portanto gostaria de cravar aqui o que são rotas, feitas por meio do react
@@ -25,6 +28,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/UserPage" element={<UserPage />} />
+        <Route path="/Post/:id" element={<Post />} />
+        <Route path="/PostCreate" element={<PostCreate />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
