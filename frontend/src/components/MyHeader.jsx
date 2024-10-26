@@ -7,10 +7,10 @@ const MyHeader = () => {
         <header className='header-container w-full h-20 inline-flex shadow-sm'>
             <nav className=' inline-flex list-none'>
                 <div className=' ml-7 mr-12 content-center text-2xl'>
-                  <Link to={"/"}><h1>Logo...</h1></Link>
+                  <Link to={"/"}> <img src="png-logo_principal.png" className="logo" alt="logo" /></Link>
                 </div>
                 <hr />
-                <div className=' content-center'>
+                <div className='content-center w-full flex'>
                   <ul className='header-links inline-flex gap-14 ml-7 mr-12 text-2xl'>
                     <li><Link to={"/Rules"}>Regras</Link></li>
                     <li><Link to={"/News"}>Novidades</Link></li>
