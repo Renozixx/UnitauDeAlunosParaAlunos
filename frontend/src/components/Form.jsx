@@ -34,7 +34,12 @@ const Form = ({route, method}) => {
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
+            <script></script>
+            <div className='style_logo'>
+            <img src="png-logo_principal.png" className="logo-register" alt="logo-register" />
+            </div>
             <h1>{name}</h1>
+            <div className='styles-forms'>
             <input 
                 className='form-input text-black'
                 type="text"
@@ -50,6 +55,7 @@ const Form = ({route, method}) => {
                 placeholder='Password'
             />
             <input className="form-submit" type="submit" value="Submit" />
+            </div>
         </form>
     )
 }

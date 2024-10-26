@@ -29,9 +29,6 @@ const Home = () => {
     getPosts();
   }, [])
 
-  pesquisarPost(() => {
-    
-  })
   return (
     <>
       <main className='darkmode-backgroundcolor h-screen'>
