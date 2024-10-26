@@ -10,8 +10,8 @@ import MyHeader from '../components/MyHeader'
 
 const Home = () => {
   const [Post, setPosts] = useState([]);
-  const [content, setContent] = useState("");
-  const [title, setTitle] = useState("");
+  const [PostsFiltered, setPostsFiltered] = useState([])
+  const [pesquisa, setPesquisa] = useState("")
 
   // Essa função pega os posts do usuario no geral
   const getPosts = () => {
@@ -29,18 +29,52 @@ const Home = () => {
     getPosts();
   }, [])
 
-  pesquisarPost(() => {
-    
-  })
+  const pesquisarPost = (e) => {
+    e.preventDefault()
+  }
   return (
     <>
       <main className='darkmode-backgroundcolor h-screen'>
         <MyHeader />
-        <article>
-          <div>
-            <form action="">
-
+        <article className='darkmode-backgroundcolor py-4 px-6'>
+          <div className='tophomepage-container mb-8 justify-between flex'>
+            <form onSubmit={pesquisarPost}>
+              <input 
+                className='text-black py-2 px-3 rounded-md'
+                type="text" 
+                placeholder='O que deseja pesquisar'
+                value={pesquisa}
+                onChange={e => setPesquisa(e.target.value)}
+              />
+              <button onClick={pesquisarPost} className='py-2 px-3 ml-4 rounded-md bg-blue-950'>Pesquisar</button>
             </form>
+            <Link to={"/PostCreate"} className='py-2 px-3 ml-4 rounded-md bg-blue-950'>+ Criar Postagem</Link>
+          </div>
+          <div>
+            <h2 className='text-2xl mb-2'>Postagens Recentes</h2>
+            <hr className='w-full fill-white opacity-30'/>
+            {Post.map((post) => {
+              const dateObj = new Date(post.criadoem);
+              const formattedDate = dateObj.toLocaleDateString();
+              
+              return(
+              <div key={post.id} className='w-full'>
+                <h2 className='text-xl'>{post.titulo}</h2>
+                <p className='text-base'>{post.descricao}</p>
+                <div className='inline-flex mt-3 justify-between w-full'>
+                  <div className='flex items-center'>
+                    <Link to={`/Post/${post.id}`} state={{id: post.id}} className='bg-blue-950 py-2 px-4 rounded-md'>Ler Publicação</Link>
+                  </div>
+                  <div className='text-left break-words'>
+                    <p>criado por: {post.autor}</p>
+                    <p>criado em: {formattedDate}</p>
+                  </div>
+                </div>
+                <hr className='w-full fill-white opacity-30 mt-1'/>
+              </div>
+              
+              )
+            })}
           </div>
         </article>
       </main>

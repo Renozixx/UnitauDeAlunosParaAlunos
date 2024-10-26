@@ -13,7 +13,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     // Liste as URLs que não devem incluir o token
-    const publicEndpoints = ['/api/Posts/', '/api/public-endpoint/'];
+    const publicEndpoints = ['/api/Posts/', `/api/Post/`, '/api/public-endpoint/'];
 
     if (publicEndpoints.some(endpoint => config.url.includes(endpoint))) {
       // Não adiciona o token se a URL estiver na lista de endpoints públicos
