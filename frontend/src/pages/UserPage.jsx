@@ -109,7 +109,7 @@ function UserPage() {
               <MyHeader />
           </div>
           <article className="w-full lg:gap-4 lg:inline-flex h-full darkmode-backgroundcolor">
-            <aside className="darkmode-itemscolor lg:w-56 lg:h-full break-words">
+            <aside className="darkmode-itemscolor w-full lg:w-56 lg:h-full break-words">
               <div className="ml-2 mr-2">
                 <h3 className="mb-5 mt-5">Foto do usuario</h3>
                 <h2 className="text-lg">
@@ -126,7 +126,7 @@ function UserPage() {
               </div>
             </aside>
             <div className="inline-flex break-words w-full">
-              <div className="darkmode-itemscolor rounded-md m-5 p-3 flex flex-col w-1/2">
+              <div className="darkmode-itemscolor rounded-md m-5 p-3 flex-col w-1/2">
                 <div className='flex justify-between'>
                   <h2 className="text-2xl ml-2">Posts de {Username}</h2>
                   <Link to={"/PostCreate"} className='bg-blue-950 rounded-md p-2 h-min'>+ Criar Novo Post</Link>
