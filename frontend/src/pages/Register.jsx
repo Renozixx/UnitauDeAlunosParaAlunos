@@ -8,7 +8,9 @@ const Register = () => {
     <>
       <body className='h-screen darkmode-backgroundcolor'>
         <MyHeader />
-        <Form route="/api/user/register/" method="register"></Form>  
+        <main className='w-full flex items-center justify-center'>
+          <Form route="/api/user/register/" method="register"></Form>  
+        </main>
       </body>
     </>
   )

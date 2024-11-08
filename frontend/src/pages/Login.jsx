@@ -7,7 +7,7 @@ const Login = () => {
     <>
       <body className='h-screen darkmode-backgroundcolor'>
         <MyHeader/>
-        <main>
+        <main className='w-full flex items-center justify-center'>
           <Form route="/api/token/" method="login"></Form>
         </main>
       </body>

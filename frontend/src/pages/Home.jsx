@@ -35,7 +35,7 @@ const Home = () => {
         <MyHeader />
         <article className='darkmode-backgroundcolor py-4 px-6'>
           <div className='tophomepage-container mb-8 justify-between flex'>
-            <form onSubmit={pesquisarPost}>
+            <form>
               <input 
                 className='text-black py-2 px-3 rounded-md'
                 type="text" 
@@ -43,9 +43,11 @@ const Home = () => {
                 value={pesquisa}
                 onChange={e => setPesquisa(e.target.value)}
               />
-              <button onClick={pesquisarPost} className='py-2 px-3 ml-4 rounded-md bg-blue-950'>Pesquisar</button>
+              <button className='py-2 px-3 md:ml-4 md:mt-0 mt-2 rounded-md bg-blue-950'>Pesquisar</button>
             </form>
-            <Link to={"/PostCreate"} className='py-2 px-3 ml-4 rounded-md bg-blue-950'>+ Criar Postagem</Link>
+            <div className='flex justify-center items-center'>
+              <Link to={"/PostCreate"} className='py-2 px-3 md:ml-4 text-center h-fit rounded-md bg-blue-950'>+ Criar Postagem</Link>
+            </div>
           </div>
           <div>
             <h2 className='text-2xl mb-2'>Postagens Recentes</h2>

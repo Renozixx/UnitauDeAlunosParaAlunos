@@ -30,20 +30,20 @@ const MyHeader = () => {
                   </ul>
                 </div>
             </nav>
-            <div className='justify-between flex w-full md:hidden'>
-                <div className=' text-3xl ml-5 mt-2 content-center'>
+            <div className='justify-between flex items-center w-full md:hidden'>
+                <div className='ml-auto pt-3 pl-5'>
+                  <Link to={"/"}><img src="png-logo_principal.png" className="logo w-1/12 justify-center items-center" alt="logo" /></Link>
+                </div>
+                <div className=' text-3xl mr-5 mt-2 content-center'>
                   <button onClick={handleBtn}>
                     {isExpanded ? "x" : "="}
                   </button>
                 </div>
-                <div className=' ml-7 mr-12 mt-3 content-center text-2xl'>
-                  <Link to={"/"}><h1>Logo...</h1></Link>
-                </div>
             </div>
             {isExpanded && 
-            <nav className='fixed header-container py-2'>
+            <nav className='fixed z-10 header-container py-2'>
                 <hr className='w-screen' />
-                <div className=' content-center'>
+                <div className=' text-right content-center'>
                   <ul className='header-links  ml-2 mr-5 text-xl'>
                     <li className='py-1'><Link to={"/Rules"}>Regras</Link></li>
                     <li className='py-1'><Link to={"/News"}>Novidades</Link></li>

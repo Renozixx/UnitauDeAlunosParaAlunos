@@ -3,33 +3,46 @@ import api from "../api";
 import { useLocation } from "react-router-dom";
 import MyHeader from "../components/MyHeader";
 
-const Post = ({ id }) => {
+const Post = () => {
   const location = useLocation();
-  const [post, setPost] = useState();
-
   const data = location.state
+  const [post, setPost] = useState({});
+  // const [date, setDate] = useState("");
+  // const [hour, getHour] = useState("");
+  console.log(data)
   
   useEffect(() => {
-    getPost()
+    getPost();
+    console.log(post)
   }, [])
 
   const getPost = () => {
     api
     .get(`/api/Post/${data.id}/`)
-    .then((res) => {
-      setPost(res.data); 
-      console.log(res.data)
-    })
+    .then((res) => { setPost(res.data) })
     .catch(err => console.log(err))
   };
 
   return (
     <>
-      <main className="darkmode-backgroundcolor h-screen">
-        <MyHeader></MyHeader>
-        <article>
+      <main className="darkmode-backgroundcolor h-screen ">
+        <div>
+          <MyHeader></MyHeader>
+        </div>
+        <article className="p-2">
           <div className="content-container">
-            <h1 className="text-2xl"></h1>
+            <div>
+              <div>
+              <h1 className="text-2xl">{post.titulo}</h1>
+              <div>
+                <span>Autor : {post.autor}</span>
+                <br />
+              </div>
+                <br />
+            </div>
+              <hr className="w-full" />
+            </div>
+            <div dangerouslySetInnerHTML={{__html: post.conteudo}}></div>
           </div>
         </article>
       </main>
