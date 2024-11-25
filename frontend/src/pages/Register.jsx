@@ -6,8 +6,12 @@ import Form from '../components/Form'
 const Register = () => {
   return (      
     <>
-      <MyHeader />
-      <Form route="/api/user/register/" method="register"></Form>
+      <body className='h-screen darkmode-backgroundcolor'>
+        <MyHeader />
+        <main className='w-full flex items-center justify-center'>
+          <Form route="/api/user/register/" method="register"></Form>  
+        </main>
+      </body>
     </>
   )
 }

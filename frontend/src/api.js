@@ -12,6 +12,14 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
+    // Liste as URLs que não devem incluir o token
+    const publicEndpoints = ['/api/Posts/', `/api/Post/`, '/api/public-endpoint/'];
+
+    if (publicEndpoints.some(endpoint => config.url.includes(endpoint))) {
+      // Não adiciona o token se a URL estiver na lista de endpoints públicos
+      return config;
+    }
+
     const token = localStorage.getItem(ACCESS_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

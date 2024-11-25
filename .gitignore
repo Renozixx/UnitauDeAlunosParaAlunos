@@ -1,2 +1,4 @@
 /env
-/frontend/node_modules
+/node_modules
+/backend/backend/settings.py
+/__pycache__
